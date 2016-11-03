@@ -11,7 +11,7 @@ def hash_calc(filename):
   input = open(filename, 'rU').read()
   num = 0
   #the correct output starts with 5 zeroes
-  first_five = re.compile('000000*')
+  first_five = re.compile('0000000*')
   #loop variables
   not_done = 1
   while (not_done == 1):
@@ -28,7 +28,7 @@ def hash_calc(filename):
     #  print "No matches found in "+str(num)+" attempts"
     #no good? add 1 to num and try again
     num = num+1
-  return output.hexdigest()
+  return num
 
 def main():
   if len(sys.argv) != 2:
@@ -36,7 +36,7 @@ def main():
     sys.exit(1)
 
   coin_hash = hash_calc(sys.argv[1])
-  print "The hash Santa is looking for is " + coin_hash + "."
+  print "The number Santa is looking for is " + str(coin_hash) + "."
 
 if __name__ == '__main__':
   main()
